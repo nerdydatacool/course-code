@@ -1,7 +1,7 @@
 name: Chekout
 on: [push]
 jobs:
-  checkuot-and-display-files:
+  checkout-and-display-files:
     runs-on: ubuntu-latest
     steps:
     - name: List Files Before
@@ -10,6 +10,7 @@ jobs:
       run: |
         git init
         git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-        git fetch origingit checkout main
+        git fetch origin
+        git checkout main
     - name: List Files After
       run: ls -a
