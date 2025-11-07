@@ -21,7 +21,7 @@ jobs:
     
 
   dependant-job:
-    needs: run-shell-ommands
+    needs: run-shell-commands
     runs-on: windows-latest
     steps:
     - name: echo another string
