@@ -3,7 +3,7 @@ on:
     push:
         branches: 
          - main
-         - "feature/**" #it will trigger for any feature branch
+         #- "feature/**" #it will trigger for any feature branch
          - "!feature-branch"
         #branches-ignore:
         #- develop
