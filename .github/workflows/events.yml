@@ -1,8 +1,30 @@
 name: Repository Events
 on: 
     push:
+        branches: 
+         - main
+         - "feature/**" #it will trigger for any feature branch
+         - "!feature-branch"
+        branches-ignore:
+         - develop
+        tags:
+         - 'v*.*.*'
+         - "!v1.1.1"   
+        paths:
+         - 'src/**'
+         - '!docs/**'
+         - '!test.txt'
+          
     pull_request:
         types: [opened, assigned, synchronize, reopened]
+        branches: 
+         - main
+        paths:
+         - 'src/**'
+         - '!docs/**'
+         - '!test.txt'
+
+
     issues:
         types: [opened]
 
