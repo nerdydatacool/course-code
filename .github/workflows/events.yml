@@ -17,8 +17,8 @@ on:
           
     pull_request:
         types: [opened, assigned, synchronize, reopened]
-        branches: 
-         - main
+        #branches: 
+        # - main
         paths:
          - 'src/**'
          - '!docs/**'
