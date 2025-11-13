@@ -29,4 +29,4 @@ jobs:
     needs: job-1
     if: failure()
     steps:
-      - run: echo 'Job 2'
+      - run: echo 'Job 2' #now job 1 will run first and if it fails then only job 2 will run
