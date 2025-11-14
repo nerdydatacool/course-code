@@ -4,6 +4,7 @@ on: [push]
 jobs:
   log-vars:
     runs-on: ubuntu-latest
+    # change environmrnt to production to test cause boolean secret for prod is true and staging it's false
     environment: "staging"
     env:
       BOOLEAN_SECRET: ${{ secrets.BOOLEAN_SECRET }}
