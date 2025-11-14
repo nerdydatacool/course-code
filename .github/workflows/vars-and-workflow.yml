@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Run only if BOOLEAN_SECRET is true
         if: env.BOOLEAN_SECRET == 'true'
-        run: echo "I ran"
+        run: echo "I ran successfully"
       - name: Log Vars
         run: |
           echo "REPO_LEVEL_VAR: $REPO_LEVEL_VAR"
