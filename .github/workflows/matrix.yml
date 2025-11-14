@@ -22,7 +22,7 @@
 
 
 
-##below code i sfor including and excluding matrix configurations
+##below code is for including and excluding matrix configurations; ahndkinf fails job if experimental is true in matrix
 
 name: Matrix
 on: [push]
@@ -39,7 +39,7 @@ on: [push]
 
 jobs:
   node-matrix:
-    continue-on-error: false
+    continue-on-error: ${{ matrix.experimental == true }} #if experimental is true then continue on error else false, remaining job will run even if one job fails without stopping
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -58,7 +58,7 @@ jobs:
         exclude:
           - os: ubuntu-latest
             node-version: 14
-      fail-fast: false
+      fail-fast: true
       # max-parallel: 3
     runs-on: ${{ matrix.os }}
     steps:
