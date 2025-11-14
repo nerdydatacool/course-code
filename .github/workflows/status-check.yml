@@ -6,10 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-        run: sleep 20
+        run: sleep 90
+        timeout-minutes: 1
       - name: Step 2
         id: step-2
-        continue-on-error: true
+        continue-on-error: true # to test failure condition , this will help even if there is failure in step 2 remaining steps will run
         run: exit 1
       - name: Runs on step 2 Failure
         if: failure() && steps.step-2.conclusion == 'failure'
