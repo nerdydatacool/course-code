@@ -1,3 +1,4 @@
+#manulaly trigger workflow with dynamic matrix inputs from github click on run workflow button to run
 name: Dynamic Matrix
 on:
   workflow_dispatch:
