@@ -39,7 +39,7 @@ on: [push]
 
 jobs:
   node-matrix:
-    continue-on-error: ${{ matrix.experimental == true }} #if experimental is true then continue on error else false, remaining job will run even if one job fails without stopping
+    continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
