@@ -1,0 +1,20 @@
+name: Variables and Secrets
+on: [push]
+
+jobs:
+  log-vars:
+    runs-on: ubuntu-latest
+    # change environmrnt to production to test cause boolean secret for prod is true and staging it's false
+    environment: "staging"
+    env:
+      BOOLEAN_SECRET: ${{ secrets.BOOLEAN_SECRET }}
+      ENV_LEVEL_VAR: ${{ vars.ENV_LEVEL_VAR }}
+      REPO_LEVEL_VAR: ${{ vars.REPO_LEVEL_VAR }}
+    steps:
+      - name: Run only if BOOLEAN_SECRET is true
+        if: env.BOOLEAN_SECRET == 'true'
+        run: echo "I ran successfully"
+      - name: Log Vars
+        run: |
+          echo "REPO_LEVEL_VAR: $REPO_LEVEL_VAR"
+          echo "ENV_LEVEL_VAR: $ENV_LEVEL_VAR"
